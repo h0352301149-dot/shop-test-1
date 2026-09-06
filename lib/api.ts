@@ -6,13 +6,14 @@ import type {
   User,
 } from "@/types";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+/* ============================================================
+   API CONFIG
+============================================================ */
 
-if (!API_URL) {
-  throw new Error(
-    "Thiếu NEXT_PUBLIC_API_URL trong .env.local",
-  );
-}
+// Browser sẽ gọi Vercel HTTPS proxy.
+// Proxy sẽ chuyển request tới API thật:
+// http://161.118.218.137:4000
+const API_BASE = "/api/proxy";
 
 /* ============================================================
    API REQUEST
@@ -56,7 +57,7 @@ async function apiRequest<T>(
 
   try {
     response = await fetch(
-      API_URL + endpoint,
+      API_BASE + endpoint,
       {
         ...options,
         headers: requestHeaders,
