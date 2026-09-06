@@ -32,9 +32,6 @@ export default function RegisterPage() {
   /*
    * NOTE:
    * State dùng để lưu dữ liệu người dùng nhập vào form.
-   *
-   * Không dùng biến thường vì khi state thay đổi,
-   * React cần render lại giao diện.
    */
 
   const [email, setEmail] = useState("");
@@ -48,8 +45,6 @@ export default function RegisterPage() {
   /*
    * NOTE:
    * Cho phép người dùng bật/tắt hiển thị mật khẩu.
-   *
-   * Đây chỉ là state UI, không liên quan đến API.
    */
 
   const [showPassword, setShowPassword] = useState(false);
@@ -63,9 +58,9 @@ export default function RegisterPage() {
   /*
    * NOTE:
    * loading dùng để:
-   * - hiển thị trạng thái "Đang tạo tài khoản..."
+   * - hiển thị trạng thái đang đăng ký
    * - disable input/button
-   * - tránh người dùng submit form nhiều lần liên tiếp
+   * - tránh submit nhiều lần
    */
 
   const [loading, setLoading] = useState(false);
@@ -77,10 +72,10 @@ export default function RegisterPage() {
   /*
    * NOTE:
    * error:
-   *   Lưu lỗi trả về từ API hoặc lỗi đăng ký.
+   *   Lỗi trả về từ API hoặc lỗi đăng ký.
    *
    * success:
-   *   Hiển thị khi API đăng ký thành công.
+   *   Thông báo đăng ký thành công.
    */
 
   const [error, setError] = useState("");
@@ -92,18 +87,29 @@ export default function RegisterPage() {
 
   /*
    * NOTE:
-   * Tách lỗi theo từng field giúp UX tốt hơn.
-   *
-   * Ví dụ:
-   * Email sai -> lỗi ngay dưới Email.
-   * Password ngắn -> lỗi ngay dưới Password.
-   *
-   * Không cần đưa tất cả lỗi vào một thông báo chung.
+   * Mỗi input có state lỗi riêng để hiển thị
+   * thông báo ngay bên dưới field tương ứng.
    */
 
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-  const [confirmPasswordError] =
+
+  /*
+   * NOTE:
+   * Phải khai báo cả state và setter.
+   *
+   * Trước đây code chỉ có:
+   *
+   * const [confirmPasswordError] = useState("");
+   *
+   * nhưng phía dưới lại sử dụng:
+   *
+   * setConfirmPasswordError(...)
+   *
+   * nên TypeScript báo lỗi.
+   */
+
+  const [confirmPasswordError, setConfirmPasswordError] =
     useState("");
 
   // ==========================================================
@@ -112,12 +118,12 @@ export default function RegisterPage() {
 
   /*
    * NOTE:
-   * Validation phía frontend giúp:
+   * Validation frontend giúp:
    * - giảm request API không cần thiết
    * - phản hồi nhanh cho người dùng
    * - cải thiện UX
    *
-   * Tuy nhiên frontend validation không thay thế
+   * Frontend validation không thay thế
    * validation phía backend.
    */
 
@@ -131,11 +137,8 @@ export default function RegisterPage() {
     /*
      * NOTE:
      * trim() loại bỏ khoảng trắng thừa ở đầu/cuối email.
-     *
-     * Ví dụ:
-     * " admin@example.com "
-     * -> "admin@example.com"
      */
+
     const normalizedEmail = email.trim();
 
     // ========================================================
@@ -158,9 +161,7 @@ export default function RegisterPage() {
 
     /*
      * NOTE:
-     * Kiểm tra password ở frontend trước khi gọi API.
-     *
-     * Quy tắc hiện tại:
+     * Quy tắc:
      * - bắt buộc nhập
      * - tối thiểu 6 ký tự
      */
@@ -207,14 +208,14 @@ export default function RegisterPage() {
 
   /*
    * NOTE:
-   * handleSubmit là flow chính của trang đăng ký:
+   * Flow đăng ký:
    *
    * 1. Chặn browser submit mặc định.
    * 2. Xóa message cũ.
    * 3. Validate form.
-   * 4. Gọi API POST /register thông qua registerUser().
-   * 5. Nếu thành công -> hiển thị success.
-   * 6. Nếu thất bại -> hiển thị error.
+   * 4. Gọi POST /register thông qua registerUser().
+   * 5. Thành công -> success.
+   * 6. Thất bại -> error.
    * 7. finally -> tắt loading.
    */
 
@@ -226,7 +227,7 @@ export default function RegisterPage() {
     setError("");
     setSuccess("");
 
-    // Không gọi API nếu dữ liệu frontend không hợp lệ.
+    // Không gọi API nếu form không hợp lệ.
     if (!validateForm()) {
       return;
     }
@@ -236,15 +237,10 @@ export default function RegisterPage() {
 
       /*
        * NOTE:
-       * Không fetch trực tiếp tại component.
+       * Component không gọi fetch trực tiếp.
        *
-       * Component chỉ gọi:
-       * registerUser()
-       *
-       * Logic API nằm trong:
+       * API service nằm trong:
        * lib/api.ts
-       *
-       * Đây là cách tách UI và API service.
        */
 
       await registerUser(
@@ -256,26 +252,23 @@ export default function RegisterPage() {
        * NOTE:
        * API đăng ký thành công.
        *
-       * Không tự động login ở đây vì flow hiện tại
-       * yêu cầu người dùng đăng ký xong rồi đăng nhập.
+       * Không tự động login vì API register
+       * không trả token theo flow hiện tại.
        */
 
       setSuccess(
         "Tạo tài khoản thành công. Bạn có thể đăng nhập để tiếp tục."
       );
 
-      // Xóa form sau khi đăng ký thành công
+      // Xóa form sau khi đăng ký thành công.
       setEmail("");
       setPassword("");
       setConfirmPassword("");
 
     } catch (err: unknown) {
-
       /*
        * NOTE:
        * unknown giúp TypeScript an toàn hơn.
-       *
-       * Không giả định err luôn là Error.
        */
 
       const message =
@@ -285,25 +278,18 @@ export default function RegisterPage() {
 
       /*
        * NOTE:
-       * lib/api.ts đã xử lý HTTP status như:
-       * - 400
-       * - 401
-       * - 409
+       * lib/api.ts đã xử lý HTTP status.
        *
-       * Component chỉ cần lấy message để hiển thị.
+       * Component chỉ lấy message để hiển thị.
        */
 
       setError(message);
 
     } finally {
-
       /*
        * NOTE:
-       * finally luôn chạy dù request:
-       * - thành công
-       * - thất bại
-       *
-       * Vì vậy loading luôn được reset.
+       * finally luôn chạy dù request thành công
+       * hay thất bại.
        */
 
       setLoading(false);
@@ -316,9 +302,8 @@ export default function RegisterPage() {
 
   /*
    * NOTE:
-   * Khi người dùng bắt đầu sửa dữ liệu,
-   * các lỗi cũ được xóa để UI không còn hiển thị
-   * thông báo lỗi đã không còn phù hợp.
+   * Khi người dùng sửa input,
+   * lỗi cũ được xóa để UX tốt hơn.
    */
 
   function handleEmailChange(value: string) {
@@ -712,14 +697,7 @@ export default function RegisterPage() {
 
                   </div>
 
-                  {/*
-                   * NOTE:
-                   * Sau khi register thành công,
-                   * hiển thị CTA để người dùng chuyển sang login.
-                   *
-                   * Không tự động đăng nhập vì API register
-                   * không trả token theo flow hiện tại.
-                   */}
+                  {/* CTA đăng nhập */}
 
                   <Link
                     href="/login"
