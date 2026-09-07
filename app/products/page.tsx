@@ -613,20 +613,20 @@ export default function ProductsPage() {
 
   if (authChecking) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-950 via-blue-950 to-cyan-950">
+      <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950">
         <div className="flex flex-col items-center">
 
           <div className="relative flex h-14 w-14 items-center justify-center">
-            <div className="absolute inset-0 animate-spin rounded-full border-2 border-white/10 border-t-cyan-400" />
+            <div className="absolute inset-0 animate-spin rounded-full border-2 border-white/10 border-t-blue-400" />
 
-            <div className="h-6 w-6 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 shadow-lg shadow-cyan-500/30" />
+            <div className="h-6 w-6 rounded-full bg-gradient-to-br from-blue-500 to-blue-400 shadow-lg shadow-blue-500/20" />
           </div>
 
           <p className="mt-5 text-sm font-bold text-white">
             Đang xác thực phiên đăng nhập...
           </p>
 
-          <p className="mt-1 text-xs font-medium text-blue-200/60">
+          <p className="mt-1 text-xs font-medium text-slate-400">
             Vui lòng chờ trong giây lát
           </p>
 
@@ -641,9 +641,9 @@ export default function ProductsPage() {
 
   if (authError) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-950 via-blue-950 to-cyan-950 px-6">
+      <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-950 via-slate-900 to-blue-950 px-6">
 
-        <div className="w-full max-w-md overflow-hidden rounded-3xl border border-white/10 bg-white p-8 text-center shadow-2xl shadow-blue-950/40">
+        <div className="w-full max-w-md overflow-hidden rounded-3xl border border-slate-200 bg-white p-8 text-center shadow-2xl shadow-slate-950/30">
 
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-rose-50 text-rose-600 ring-8 ring-rose-50/50">
             <AlertCircleIcon />
@@ -664,7 +664,7 @@ export default function ProductsPage() {
                 "/login?redirect=/products"
               )
             }
-            className="mt-6 w-full rounded-xl bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-blue-500/20 transition hover:from-blue-700 hover:to-cyan-600"
+            className="mt-6 w-full rounded-xl bg-gradient-to-r from-blue-700 to-blue-600 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-blue-700/20 transition hover:from-blue-800 hover:to-blue-700"
           >
             Đăng nhập lại
           </button>
@@ -679,15 +679,15 @@ export default function ProductsPage() {
   ========================================================= */
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,_rgba(37,99,235,0.12),_transparent_28%),radial-gradient(circle_at_85%_15%,_rgba(6,182,212,0.10),_transparent_25%),linear-gradient(135deg,#f1f5f9_0%,#eff6ff_48%,#ecfeff_100%)] font-sans text-slate-800">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(37,99,235,0.06),transparent_28%),linear-gradient(135deg,#f8fafc_0%,#f1f5f9_52%,#eef2f7_100%)] font-sans text-slate-800">
 
       {/* =====================================================
-         HEADER
+          HEADER
       ===================================================== */}
 
-      <header className="sticky top-0 z-30 border-b border-blue-200/60 bg-slate-950/95 shadow-lg shadow-blue-950/10 backdrop-blur-xl">
+      <header className="sticky top-0 z-30 border-b border-slate-800 bg-slate-950/95 shadow-lg shadow-slate-950/10 backdrop-blur-xl">
 
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-60" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-50" />
 
         <div className="mx-auto flex h-[68px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
 
@@ -695,14 +695,12 @@ export default function ProductsPage() {
 
           <div className="flex items-center gap-3">
 
-            <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-blue-500 via-blue-600 to-cyan-400 text-sm font-black text-white shadow-lg shadow-cyan-500/20">
-
-              <div className="absolute -right-2 -top-2 h-6 w-6 rounded-full bg-white/20 blur-sm" />
-
-              <span className="relative">
-                S
-              </span>
-
+            <div className="relative h-10 w-10 overflow-hidden rounded-xl shadow-lg shadow-blue-950/20">
+              <img
+                src="/2aOboQws3Jga5zWour3pS6E7WtLQnNGJPgCAZgsy.jpg"
+                alt="Shop Admin"
+                className="h-full w-full object-cover"
+              />
             </div>
 
             <div>
@@ -710,7 +708,7 @@ export default function ProductsPage() {
                 Shop Admin
               </p>
 
-              <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-cyan-300">
+              <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-blue-300">
                 Management
               </p>
             </div>
@@ -723,7 +721,7 @@ export default function ProductsPage() {
 
             <button
               type="button"
-              className="rounded-lg bg-gradient-to-r from-blue-500 to-cyan-400 px-4 py-2 text-xs font-bold text-white shadow-md shadow-cyan-500/20"
+              className="rounded-lg bg-blue-600 px-4 py-2 text-xs font-bold text-white shadow-md shadow-blue-900/30"
             >
               Sản phẩm
             </button>
@@ -764,7 +762,7 @@ export default function ProductsPage() {
                 {user?.email ?? "Administrator"}
               </p>
 
-              <p className="text-[9px] font-bold uppercase tracking-wider text-cyan-300">
+              <p className="text-[9px] font-bold uppercase tracking-wider text-blue-300">
                 Administrator
               </p>
 
@@ -786,7 +784,7 @@ export default function ProductsPage() {
       </header>
 
       {/* =====================================================
-         MAIN
+          MAIN
       ===================================================== */}
 
       <main className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
@@ -799,11 +797,11 @@ export default function ProductsPage() {
 
             <div className="flex items-center gap-2">
 
-              <span className="rounded-lg border border-blue-200 bg-blue-600 px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-white shadow-sm shadow-blue-500/20">
+              <span className="rounded-lg border border-blue-700 bg-blue-700 px-2.5 py-1 text-[9px] font-black uppercase tracking-wider text-white shadow-sm shadow-blue-900/20">
                 Inventory
               </span>
 
-              <span className="h-1.5 w-1.5 rounded-full bg-cyan-500" />
+              <span className="h-1.5 w-1.5 rounded-full bg-blue-500" />
 
               <span className="text-[10px] font-bold text-slate-500">
                 Product Management
@@ -814,13 +812,10 @@ export default function ProductsPage() {
             <div>
 
               <h1 className="text-2xl font-black tracking-tight text-slate-950 sm:text-3xl">
-
                 Quản lý{" "}
-
-                <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">
+                <span className="text-blue-700">
                   sản phẩm
                 </span>
-
               </h1>
 
               <p className="mt-1 max-w-2xl text-xs leading-5 text-slate-500 sm:text-sm">
@@ -835,20 +830,21 @@ export default function ProductsPage() {
         </section>
 
         {/* =================================================
-           METRICS
+            METRICS
         ================================================= */}
 
         <section className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
 
           {/* TOTAL */}
 
-          <div className="group relative overflow-hidden rounded-2xl border border-blue-200 bg-gradient-to-br from-white via-white to-blue-50 p-5 shadow-md shadow-blue-100/50 transition-all duration-200 hover:-translate-y-1 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-200/50">
+          <div className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-200/70 transition-all duration-200 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg hover:shadow-slate-300/40">
 
-            <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-blue-500/10 blur-2xl" />
+            <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-blue-500/5 blur-2xl" />
 
             <div className="relative flex items-start justify-between">
 
               <div>
+
                 <p className="text-xs font-bold text-slate-500">
                   Tổng sản phẩm
                 </p>
@@ -856,9 +852,10 @@ export default function ProductsPage() {
                 <p className="mt-2 text-2xl font-black tracking-tight text-slate-950">
                   {totalProducts}
                 </p>
+
               </div>
 
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 text-white shadow-lg shadow-blue-500/25 transition-transform group-hover:scale-105">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-700 text-white shadow-lg shadow-blue-700/20 transition-transform group-hover:scale-105">
                 <PackageIcon />
               </div>
 
@@ -866,7 +863,7 @@ export default function ProductsPage() {
 
             <div className="relative mt-4 flex items-center gap-2">
 
-              <span className="h-1.5 w-1.5 rounded-full bg-blue-500 shadow-sm shadow-blue-500" />
+              <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
 
               <span className="text-[11px] font-semibold text-blue-700">
                 Tổng sản phẩm
@@ -878,13 +875,14 @@ export default function ProductsPage() {
 
           {/* ACTIVE */}
 
-          <div className="group relative overflow-hidden rounded-2xl border border-emerald-200 bg-gradient-to-br from-white via-white to-emerald-50 p-5 shadow-md shadow-emerald-100/50 transition-all duration-200 hover:-translate-y-1 hover:border-emerald-300 hover:shadow-xl hover:shadow-emerald-200/50">
+          <div className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-200/70 transition-all duration-200 hover:-translate-y-1 hover:border-emerald-200 hover:shadow-lg hover:shadow-slate-300/40">
 
-            <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-emerald-500/10 blur-2xl" />
+            <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-emerald-500/5 blur-2xl" />
 
             <div className="relative flex items-start justify-between">
 
               <div>
+
                 <p className="text-xs font-bold text-slate-500">
                   Còn hàng
                 </p>
@@ -892,9 +890,10 @@ export default function ProductsPage() {
                 <p className="mt-2 text-2xl font-black tracking-tight text-slate-950">
                   {activeProducts}
                 </p>
+
               </div>
 
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 text-white shadow-lg shadow-emerald-500/25 transition-transform group-hover:scale-105">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-600 text-white shadow-lg shadow-emerald-700/20 transition-transform group-hover:scale-105">
                 <CheckCircleIcon />
               </div>
 
@@ -902,7 +901,7 @@ export default function ProductsPage() {
 
             <div className="relative mt-4 flex items-center gap-2">
 
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
 
               <span className="text-[11px] font-semibold text-emerald-700">
                 Đang kinh doanh
@@ -914,13 +913,14 @@ export default function ProductsPage() {
 
           {/* OUT OF STOCK */}
 
-          <div className="group relative overflow-hidden rounded-2xl border border-amber-200 bg-gradient-to-br from-white via-white to-amber-50 p-5 shadow-md shadow-amber-100/50 transition-all duration-200 hover:-translate-y-1 hover:border-amber-300 hover:shadow-xl hover:shadow-amber-200/50">
+          <div className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-200/70 transition-all duration-200 hover:-translate-y-1 hover:border-amber-200 hover:shadow-lg hover:shadow-slate-300/40">
 
-            <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-amber-500/10 blur-2xl" />
+            <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-amber-500/5 blur-2xl" />
 
             <div className="relative flex items-start justify-between">
 
               <div>
+
                 <p className="text-xs font-bold text-slate-500">
                   Hết hàng
                 </p>
@@ -928,9 +928,10 @@ export default function ProductsPage() {
                 <p className="mt-2 text-2xl font-black tracking-tight text-slate-950">
                   {outOfStockProducts}
                 </p>
+
               </div>
 
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 text-white shadow-lg shadow-amber-500/25 transition-transform group-hover:scale-105">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-600 text-white shadow-lg shadow-amber-700/20 transition-transform group-hover:scale-105">
                 <AlertCircleIcon />
               </div>
 
@@ -938,7 +939,7 @@ export default function ProductsPage() {
 
             <div className="relative mt-4 flex items-center gap-2">
 
-              <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+              <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
 
               <span className="text-[11px] font-semibold text-amber-700">
                 Cần kiểm tra tồn kho
@@ -950,13 +951,14 @@ export default function ProductsPage() {
 
           {/* STOPPED */}
 
-          <div className="group relative overflow-hidden rounded-2xl border border-violet-200 bg-gradient-to-br from-white via-white to-violet-50 p-5 shadow-md shadow-violet-100/50 transition-all duration-200 hover:-translate-y-1 hover:border-violet-300 hover:shadow-xl hover:shadow-violet-200/50">
+          <div className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-sm shadow-slate-200/70 transition-all duration-200 hover:-translate-y-1 hover:border-violet-200 hover:shadow-lg hover:shadow-slate-300/40">
 
-            <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-violet-500/10 blur-2xl" />
+            <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-violet-500/5 blur-2xl" />
 
             <div className="relative flex items-start justify-between">
 
               <div>
+
                 <p className="text-xs font-bold text-slate-500">
                   Ngừng bán
                 </p>
@@ -964,9 +966,10 @@ export default function ProductsPage() {
                 <p className="mt-2 text-2xl font-black tracking-tight text-slate-950">
                   {stoppedProducts}
                 </p>
+
               </div>
 
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 text-white shadow-lg shadow-violet-500/25 transition-transform group-hover:scale-105">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-violet-600 text-white shadow-lg shadow-violet-700/20 transition-transform group-hover:scale-105">
                 <PauseCircleIcon />
               </div>
 
@@ -974,7 +977,7 @@ export default function ProductsPage() {
 
             <div className="relative mt-4 flex items-center gap-2">
 
-              <span className="h-1.5 w-1.5 rounded-full bg-violet-500" />
+              <span className="h-1.5 w-1.5 rounded-full bg-violet-600" />
 
               <span className="text-[11px] font-semibold text-violet-700">
                 Không kinh doanh
@@ -987,14 +990,14 @@ export default function ProductsPage() {
         </section>
 
         {/* =================================================
-           TABLE CARD
+            TABLE CARD
         ================================================= */}
 
-        <section className="mt-6 overflow-hidden rounded-2xl border border-blue-200 bg-white shadow-xl shadow-blue-100/50">
+        <section className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg shadow-slate-200/60">
 
           {/* FILTER BAR */}
 
-          <div className="border-b border-blue-200 bg-gradient-to-r from-blue-100/80 via-white to-cyan-100/70 p-4">
+          <div className="border-b border-slate-200 bg-slate-50 p-4">
 
             <div className="flex flex-col gap-3 xl:flex-row xl:items-center xl:justify-between">
 
@@ -1002,7 +1005,7 @@ export default function ProductsPage() {
 
               <div className="relative w-full xl:max-w-md">
 
-                <div className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-blue-500">
+                <div className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
                   <SearchIcon />
                 </div>
 
@@ -1015,7 +1018,7 @@ export default function ProductsPage() {
                     )
                   }
                   placeholder="Tìm theo tên, mã sản phẩm..."
-                  className="h-10 w-full rounded-xl border border-blue-200 bg-white pl-9 pr-9 text-xs font-semibold text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
+                  className="h-10 w-full rounded-xl border border-slate-200 bg-white pl-9 pr-9 text-xs font-semibold text-slate-800 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
                 />
 
                 {search && (
@@ -1024,7 +1027,7 @@ export default function ProductsPage() {
                     onClick={() =>
                       handleSearchChange("")
                     }
-                    className="absolute right-2 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-md text-slate-400 transition hover:bg-blue-100 hover:text-blue-600"
+                    className="absolute right-2 top-1/2 flex h-6 w-6 -translate-y-1/2 items-center justify-center rounded-md text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
                     aria-label="Xóa tìm kiếm"
                   >
                     <XIcon />
@@ -1048,9 +1051,8 @@ export default function ProductsPage() {
                         event.target.value as StatusFilter
                       )
                     }
-                    className="h-10 min-w-[175px] appearance-none rounded-xl border border-blue-200 bg-white px-3 pr-9 text-xs font-bold text-slate-700 outline-none transition hover:border-blue-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
+                    className="h-10 min-w-[175px] appearance-none rounded-xl border border-slate-200 bg-white px-3 pr-9 text-xs font-bold text-slate-700 outline-none transition hover:border-slate-300 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
                   >
-
                     {STATUS_OPTIONS.map(
                       (option) => (
                         <option
@@ -1061,10 +1063,9 @@ export default function ProductsPage() {
                         </option>
                       )
                     )}
-
                   </select>
 
-                  <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-blue-500">
+                  <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">
                     <ChevronDownIcon />
                   </div>
 
@@ -1081,9 +1082,8 @@ export default function ProductsPage() {
                         event.target.value
                       )
                     }
-                    className="h-10 min-w-[160px] appearance-none rounded-xl border border-blue-200 bg-white px-3 pr-9 text-xs font-bold text-slate-700 outline-none transition hover:border-blue-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
+                    className="h-10 min-w-[160px] appearance-none rounded-xl border border-slate-200 bg-white px-3 pr-9 text-xs font-bold text-slate-700 outline-none transition hover:border-slate-300 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
                   >
-
                     <option value="all">
                       Tất cả danh mục
                     </option>
@@ -1098,10 +1098,9 @@ export default function ProductsPage() {
                         </option>
                       )
                     )}
-
                   </select>
 
-                  <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-blue-500">
+                  <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">
                     <ChevronDownIcon />
                   </div>
 
@@ -1118,9 +1117,8 @@ export default function ProductsPage() {
                         event.target.value
                       )
                     }
-                    className="h-10 min-w-[155px] appearance-none rounded-xl border border-blue-200 bg-white px-3 pr-9 text-xs font-bold text-slate-700 outline-none transition hover:border-blue-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
+                    className="h-10 min-w-[155px] appearance-none rounded-xl border border-slate-200 bg-white px-3 pr-9 text-xs font-bold text-slate-700 outline-none transition hover:border-slate-300 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10"
                   >
-
                     <option value="all">
                       Tất cả mức giá
                     </option>
@@ -1136,10 +1134,9 @@ export default function ProductsPage() {
                     <option value="over20">
                       Trên 20 triệu
                     </option>
-
                   </select>
 
-                  <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-blue-500">
+                  <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">
                     <ChevronDownIcon />
                   </div>
 
@@ -1148,16 +1145,18 @@ export default function ProductsPage() {
               </div>
 
             </div>
+
           </div>
 
           {/* =================================================
-             TABLE
+              TABLE
           ================================================= */}
 
           <div className="overflow-x-auto">
 
             {loading ? (
-              <div className="bg-gradient-to-b from-blue-50/40 to-white p-6">
+
+              <div className="bg-slate-50/60 p-6">
 
                 <div className="space-y-4">
 
@@ -1165,39 +1164,42 @@ export default function ProductsPage() {
                     length: 7,
                   }).map(
                     (_, index) => (
+
                       <div
                         key={index}
                         className="flex animate-pulse items-center gap-4"
                       >
 
-                        <div className="h-4 w-4 rounded bg-blue-200" />
+                        <div className="h-4 w-4 rounded bg-slate-200" />
 
-                        <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-100 to-cyan-100" />
+                        <div className="h-10 w-10 rounded-xl bg-slate-200" />
 
                         <div className="flex-1 space-y-2">
 
                           <div className="h-3 w-40 rounded bg-slate-200" />
 
-                          <div className="h-2.5 w-24 rounded bg-blue-100" />
+                          <div className="h-2.5 w-24 rounded bg-slate-100" />
 
                         </div>
 
-                        <div className="hidden h-3 w-24 rounded bg-blue-100 md:block" />
+                        <div className="hidden h-3 w-24 rounded bg-slate-100 md:block" />
 
                         <div className="hidden h-7 w-20 rounded-full bg-emerald-100 sm:block" />
 
                         <div className="h-3 w-24 rounded bg-slate-200" />
 
                       </div>
+
                     )
                   )}
 
                 </div>
 
               </div>
+
             ) : error ? (
 
-              <div className="flex min-h-[360px] flex-col items-center justify-center bg-gradient-to-br from-rose-50/50 via-white to-blue-50/40 px-6 text-center">
+              <div className="flex min-h-[360px] flex-col items-center justify-center bg-slate-50 px-6 text-center">
 
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-rose-50 text-rose-600 ring-8 ring-rose-50/50">
                   <AlertCircleIcon />
@@ -1216,7 +1218,7 @@ export default function ProductsPage() {
                   onClick={() =>
                     window.location.reload()
                   }
-                  className="mt-5 rounded-xl bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 px-5 py-2.5 text-xs font-bold text-white shadow-lg shadow-blue-500/20 transition hover:from-blue-700 hover:to-cyan-600"
+                  className="mt-5 rounded-xl bg-blue-700 px-5 py-2.5 text-xs font-bold text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-800"
                 >
                   Thử lại
                 </button>
@@ -1225,9 +1227,9 @@ export default function ProductsPage() {
 
             ) : filteredProducts.length === 0 ? (
 
-              <div className="flex min-h-[360px] flex-col items-center justify-center bg-gradient-to-br from-blue-50/40 via-white to-cyan-50/50 px-6 text-center">
+              <div className="flex min-h-[360px] flex-col items-center justify-center bg-slate-50/60 px-6 text-center">
 
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-blue-200 bg-gradient-to-br from-blue-100 to-cyan-100 text-blue-600 shadow-sm">
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-slate-200 bg-white text-slate-500 shadow-sm">
                   <PackageIcon />
                 </div>
 
@@ -1247,7 +1249,7 @@ export default function ProductsPage() {
                     setPriceRange("all");
                     setSelectedIds([]);
                   }}
-                  className="mt-5 rounded-xl border border-blue-200 bg-white px-4 py-2.5 text-xs font-bold text-blue-600 shadow-sm transition hover:border-blue-300 hover:bg-blue-50"
+                  className="mt-5 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-bold text-blue-700 shadow-sm transition hover:border-blue-200 hover:bg-blue-50"
                 >
                   Xóa bộ lọc
                 </button>
@@ -1260,9 +1262,9 @@ export default function ProductsPage() {
 
                 <table className="w-full min-w-[980px] text-left text-xs">
 
-                  <thead className="border-b border-blue-200 bg-gradient-to-r from-slate-100 via-blue-50 to-cyan-50">
+                  <thead className="border-b border-slate-200 bg-slate-50">
 
-                    <tr className="text-[10px] font-black uppercase tracking-wider text-slate-800">
+                    <tr className="text-[10px] font-black uppercase tracking-wider text-slate-600">
 
                       {/* SELECT ALL */}
 
@@ -1284,7 +1286,7 @@ export default function ProductsPage() {
                             handleSelectAllPage
                           }
                           aria-label="Chọn tất cả sản phẩm trong trang"
-                          className="h-4 w-4 cursor-pointer rounded border-blue-300 accent-blue-600"
+                          className="h-4 w-4 cursor-pointer rounded border-slate-300 accent-blue-600"
                         />
 
                       </th>
@@ -1317,7 +1319,7 @@ export default function ProductsPage() {
 
                   </thead>
 
-                  <tbody className="divide-y divide-blue-100">
+                  <tbody className="divide-y divide-slate-100">
 
                     {paginatedProducts.map(
                       (product) => {
@@ -1348,8 +1350,8 @@ export default function ProductsPage() {
                             key={productId}
                             className={`group transition-all duration-150 ${
                               isSelected
-                                ? "bg-blue-100/70"
-                                : "hover:bg-cyan-50/60"
+                                ? "bg-blue-50"
+                                : "hover:bg-slate-50"
                             }`}
                           >
 
@@ -1368,7 +1370,7 @@ export default function ProductsPage() {
                                   )
                                 }
                                 aria-label={`Chọn ${product.name}`}
-                                className="h-4 w-4 cursor-pointer rounded border-blue-300 accent-blue-600"
+                                className="h-4 w-4 cursor-pointer rounded border-slate-300 accent-blue-600"
                               />
 
                             </td>
@@ -1379,23 +1381,21 @@ export default function ProductsPage() {
 
                               <div className="flex items-center gap-3">
 
-                                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-blue-100 via-blue-50 to-cyan-100 text-sm font-black text-blue-700 ring-1 ring-blue-200 shadow-sm">
-
+                                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-sm font-black text-blue-700 ring-1 ring-blue-100">
                                   {String(
                                     product.name ?? "?"
                                   )
                                     .charAt(0)
                                     .toUpperCase()}
-
                                 </div>
 
                                 <div className="min-w-0">
 
-                                  <p className="max-w-[230px] truncate font-black text-slate-950">
+                                  <p className="max-w-[230px] truncate font-black text-slate-900">
                                     {product.name}
                                   </p>
 
-                                  <p className="mt-0.5 text-[10px] font-bold text-blue-500">
+                                  <p className="mt-0.5 text-[10px] font-bold text-slate-400">
                                     Product
                                   </p>
 
@@ -1409,7 +1409,7 @@ export default function ProductsPage() {
 
                             <td className="px-5 py-4">
 
-                              <span className="inline-flex rounded-lg border border-blue-200 bg-gradient-to-r from-blue-50 to-cyan-50 px-2.5 py-1 font-mono text-[11px] font-black text-blue-800 shadow-sm">
+                              <span className="inline-flex rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 font-mono text-[11px] font-black text-slate-600">
                                 #{productId}
                               </span>
 
@@ -1427,35 +1427,41 @@ export default function ProductsPage() {
 
                               {product.status ===
                                 "con_hang" && (
-                                <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-gradient-to-r from-emerald-50 to-teal-50 px-2.5 py-1 text-[10px] font-bold text-emerald-700 shadow-sm">
 
-                                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 shadow-sm shadow-emerald-500" />
+                                <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[10px] font-bold text-emerald-700">
+
+                                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
 
                                   Còn hàng
 
                                 </span>
+
                               )}
 
                               {product.status ===
                                 "het_hang" && (
-                                <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-gradient-to-r from-amber-50 to-orange-50 px-2.5 py-1 text-[10px] font-bold text-amber-700 shadow-sm">
 
-                                  <span className="h-1.5 w-1.5 rounded-full bg-amber-500 shadow-sm shadow-amber-500" />
+                                <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-[10px] font-bold text-amber-700">
+
+                                  <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
 
                                   Hết hàng
 
                                 </span>
+
                               )}
 
                               {product.status ===
                                 "ngung_ban" && (
-                                <span className="inline-flex items-center gap-1.5 rounded-full border border-violet-200 bg-gradient-to-r from-violet-50 to-purple-50 px-2.5 py-1 text-[10px] font-bold text-violet-700 shadow-sm">
 
-                                  <span className="h-1.5 w-1.5 rounded-full bg-violet-500 shadow-sm shadow-violet-500" />
+                                <span className="inline-flex items-center gap-1.5 rounded-full border border-violet-200 bg-violet-50 px-2.5 py-1 text-[10px] font-bold text-violet-700">
+
+                                  <span className="h-1.5 w-1.5 rounded-full bg-violet-600" />
 
                                   Ngừng bán
 
                                 </span>
+
                               )}
 
                             </td>
@@ -1464,7 +1470,7 @@ export default function ProductsPage() {
 
                             <td className="px-5 py-4">
 
-                              <span className="font-black text-slate-950">
+                              <span className="font-black text-slate-900">
                                 {price.toLocaleString(
                                   "vi-VN"
                                 )}{" "}
@@ -1486,7 +1492,7 @@ export default function ProductsPage() {
                                       product
                                     )
                                   }
-                                  className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-blue-200 bg-white px-3 text-[11px] font-bold text-blue-700 shadow-sm transition hover:border-blue-300 hover:bg-blue-50 hover:text-blue-800"
+                                  className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 text-[11px] font-bold text-slate-600 shadow-sm transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700"
                                 >
                                   <EyeIcon />
                                   Xem
@@ -1499,7 +1505,7 @@ export default function ProductsPage() {
                                       product
                                     )
                                   }
-                                  className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-cyan-200 bg-cyan-50 px-3 text-[11px] font-bold text-cyan-700 shadow-sm transition hover:border-cyan-300 hover:bg-cyan-100"
+                                  className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-blue-200 bg-blue-50 px-3 text-[11px] font-bold text-blue-700 transition hover:border-blue-300 hover:bg-blue-100"
                                 >
                                   <EditIcon />
                                   Sửa
@@ -1510,7 +1516,9 @@ export default function ProductsPage() {
                             </td>
 
                           </tr>
+
                         );
+
                       }
                     )}
 
@@ -1519,10 +1527,10 @@ export default function ProductsPage() {
                 </table>
 
                 {/* =================================================
-                   PAGINATION
+                    PAGINATION
                 ================================================= */}
 
-                <div className="flex flex-col gap-3 border-t border-blue-200 bg-gradient-to-r from-blue-50 via-white to-cyan-50 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex flex-col gap-3 border-t border-slate-200 bg-slate-50 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
 
                   <div className="flex items-center gap-3">
 
@@ -1551,9 +1559,11 @@ export default function ProductsPage() {
                     </p>
 
                     {selectedIds.length > 0 && (
-                      <span className="hidden rounded-lg border border-blue-200 bg-blue-100 px-2 py-1 text-[10px] font-bold text-blue-700 sm:inline-flex">
+
+                      <span className="hidden rounded-lg border border-blue-200 bg-blue-50 px-2 py-1 text-[10px] font-bold text-blue-700 sm:inline-flex">
                         Đã chọn {selectedIds.length}
                       </span>
+
                     )}
 
                   </div>
@@ -1566,13 +1576,13 @@ export default function ProductsPage() {
                         handlePreviousPage
                       }
                       disabled={page <= 1}
-                      className="flex h-8 w-8 items-center justify-center rounded-lg border border-blue-200 bg-white text-blue-600 shadow-sm transition hover:border-blue-300 hover:bg-blue-50 disabled:cursor-not-allowed disabled:opacity-40"
+                      className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-500 shadow-sm transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 disabled:cursor-not-allowed disabled:opacity-40"
                       aria-label="Trang trước"
                     >
                       <ChevronLeftIcon />
                     </button>
 
-                    <div className="flex h-8 min-w-8 items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 px-2.5 text-[11px] font-black text-white shadow-md shadow-blue-500/25">
+                    <div className="flex h-8 min-w-8 items-center justify-center rounded-lg bg-blue-700 px-2.5 text-[11px] font-black text-white shadow-md shadow-blue-700/20">
                       {page}
                     </div>
 
@@ -1588,7 +1598,7 @@ export default function ProductsPage() {
                       disabled={
                         page >= totalPages
                       }
-                      className="flex h-8 w-8 items-center justify-center rounded-lg border border-blue-200 bg-white text-blue-600 shadow-sm transition hover:border-blue-300 hover:bg-blue-50 disabled:cursor-not-allowed disabled:opacity-40"
+                      className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-500 shadow-sm transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 disabled:cursor-not-allowed disabled:opacity-40"
                       aria-label="Trang sau"
                     >
                       <ChevronRightIcon />
@@ -1607,16 +1617,16 @@ export default function ProductsPage() {
         </section>
 
         {/* =================================================
-           FOOTER
+            FOOTER
         ================================================= */}
 
-        <footer className="mt-6 flex flex-col items-center justify-between gap-2 border-t border-blue-200 pt-5 text-[10px] font-semibold text-slate-400 sm:flex-row">
+        <footer className="mt-6 flex flex-col items-center justify-between gap-2 border-t border-slate-200 pt-5 text-[10px] font-semibold text-slate-400 sm:flex-row">
 
           <p>
             Shop Admin Management System
           </p>
 
-          <p className="text-blue-500">
+          <p className="text-blue-600">
             Product Inventory
           </p>
 
@@ -1625,7 +1635,7 @@ export default function ProductsPage() {
       </main>
 
       {/* =====================================================
-         PRODUCT DETAIL MODAL
+          PRODUCT DETAIL MODAL
       ===================================================== */}
 
       {selectedProduct && (
@@ -1638,7 +1648,7 @@ export default function ProductsPage() {
         >
 
           <div
-            className="w-full max-w-lg overflow-hidden rounded-3xl border border-blue-200 bg-white shadow-2xl shadow-blue-950/30"
+            className="w-full max-w-lg overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-2xl shadow-slate-950/30"
             onClick={(event) =>
               event.stopPropagation()
             }
@@ -1646,13 +1656,13 @@ export default function ProductsPage() {
 
             {/* MODAL HEADER */}
 
-            <div className="relative flex items-center justify-between overflow-hidden border-b border-blue-200 bg-gradient-to-r from-slate-950 via-blue-950 to-cyan-950 px-5 py-4">
+            <div className="relative flex items-center justify-between overflow-hidden border-b border-slate-800 bg-slate-950 px-5 py-4">
 
-              <div className="absolute -right-8 -top-10 h-28 w-28 rounded-full bg-cyan-400/20 blur-2xl" />
+              <div className="absolute -right-8 -top-10 h-28 w-28 rounded-full bg-blue-500/10 blur-2xl" />
 
               <div className="relative">
 
-                <p className="text-[9px] font-black uppercase tracking-wider text-cyan-300">
+                <p className="text-[9px] font-black uppercase tracking-wider text-blue-300">
                   Product Details
                 </p>
 
@@ -1667,7 +1677,7 @@ export default function ProductsPage() {
                 onClick={() =>
                   setSelectedProduct(null)
                 }
-                className="relative flex h-8 w-8 items-center justify-center rounded-lg text-blue-200 transition hover:bg-white/10 hover:text-white"
+                className="relative flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-white/10 hover:text-white"
                 aria-label="Đóng"
               >
                 <XIcon />
@@ -1677,18 +1687,16 @@ export default function ProductsPage() {
 
             {/* MODAL BODY */}
 
-            <div className="space-y-4 bg-gradient-to-br from-blue-50/60 via-white to-cyan-50/50 p-5">
+            <div className="space-y-4 bg-slate-50/70 p-5">
 
-              <div className="flex items-center gap-3 rounded-2xl border border-blue-200 bg-gradient-to-r from-blue-100 via-white to-cyan-100/70 p-4 shadow-sm">
+              <div className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
 
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 text-base font-black text-white shadow-lg shadow-blue-500/25">
-
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-700 text-base font-black text-white shadow-lg shadow-blue-700/20">
                   {String(
                     selectedProduct.name ?? "?"
                   )
                     .charAt(0)
                     .toUpperCase()}
-
                 </div>
 
                 <div className="min-w-0">
@@ -1697,7 +1705,7 @@ export default function ProductsPage() {
                     {selectedProduct.name}
                   </p>
 
-                  <p className="mt-1 font-mono text-[10px] font-bold text-blue-600">
+                  <p className="mt-1 font-mono text-[10px] font-bold text-slate-500">
                     #{String(
                       selectedProduct.id
                     )}
@@ -1709,9 +1717,9 @@ export default function ProductsPage() {
 
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
 
-                <div className="rounded-xl border border-blue-200 bg-white p-4 shadow-sm">
+                <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
 
-                  <p className="text-[10px] font-black uppercase tracking-wider text-blue-500">
+                  <p className="text-[10px] font-black uppercase tracking-wider text-slate-400">
                     Danh mục
                   </p>
 
@@ -1724,9 +1732,9 @@ export default function ProductsPage() {
 
                 </div>
 
-                <div className="rounded-xl border border-cyan-200 bg-gradient-to-br from-white to-cyan-50 p-4 shadow-sm">
+                <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
 
-                  <p className="text-[10px] font-black uppercase tracking-wider text-cyan-600">
+                  <p className="text-[10px] font-black uppercase tracking-wider text-blue-600">
                     Giá bán
                   </p>
 
@@ -1744,9 +1752,9 @@ export default function ProductsPage() {
 
                 </div>
 
-                <div className="rounded-xl border border-blue-200 bg-white p-4 shadow-sm sm:col-span-2">
+                <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:col-span-2">
 
-                  <p className="text-[10px] font-black uppercase tracking-wider text-slate-500">
+                  <p className="text-[10px] font-black uppercase tracking-wider text-slate-400">
                     Trạng thái
                   </p>
 
@@ -1754,35 +1762,41 @@ export default function ProductsPage() {
 
                     {selectedProduct.status ===
                       "con_hang" && (
+
                       <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-[10px] font-bold text-emerald-700">
 
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
 
                         Còn hàng
 
                       </span>
+
                     )}
 
                     {selectedProduct.status ===
                       "het_hang" && (
+
                       <span className="inline-flex items-center gap-1.5 rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 text-[10px] font-bold text-amber-700">
 
-                        <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-amber-600" />
 
                         Hết hàng
 
                       </span>
+
                     )}
 
                     {selectedProduct.status ===
                       "ngung_ban" && (
+
                       <span className="inline-flex items-center gap-1.5 rounded-full border border-violet-200 bg-violet-50 px-2.5 py-1 text-[10px] font-bold text-violet-700">
 
-                        <span className="h-1.5 w-1.5 rounded-full bg-violet-500" />
+                        <span className="h-1.5 w-1.5 rounded-full bg-violet-600" />
 
                         Ngừng bán
 
                       </span>
+
                     )}
 
                   </div>
@@ -1795,14 +1809,14 @@ export default function ProductsPage() {
 
             {/* MODAL FOOTER */}
 
-            <div className="flex justify-end border-t border-blue-200 bg-gradient-to-r from-blue-50 to-cyan-50 px-5 py-4">
+            <div className="flex justify-end border-t border-slate-200 bg-white px-5 py-4">
 
               <button
                 type="button"
                 onClick={() =>
                   setSelectedProduct(null)
                 }
-                className="rounded-xl bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-blue-500/25 transition hover:from-blue-700 hover:to-cyan-600"
+                className="rounded-xl bg-blue-700 px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-blue-700/20 transition hover:bg-blue-800"
               >
                 Đóng
               </button>

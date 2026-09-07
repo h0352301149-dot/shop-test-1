@@ -254,10 +254,12 @@ export default function HomePage() {
               {/* LOGO */}
 
               <Link href="/" className="group flex items-center gap-3">
-                <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-blue-500 to-cyan-400 text-white shadow-lg shadow-blue-500/30">
-                  <div className="absolute inset-0 bg-white/10" />
-
-                  <Icon name="dashboard" size={19} />
+                <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-blue-400/20 bg-gradient-to-br from-blue-500/20 to-cyan-400/20 text-white shadow-lg shadow-blue-500/20">
+                  <img
+                    src="/2aOboQws3Jga5zWour3pS6E7WtLQnNGJPgCAZgsy.jpg"
+                    alt="ShopAdmin Logo"
+                    className="h-full w-full object-cover"
+                  />
                 </div>
 
                 <div>
@@ -1166,8 +1168,12 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
           <div className="flex flex-col justify-between gap-7 md:flex-row md:items-center">
             <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-600 text-white">
-                <Icon name="dashboard" size={17} />
+              <div className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl bg-blue-600 text-white">
+                <img
+                  src="/2aOboQws3Jga5zWour3pS6E7WtLQnNGJPgCAZgsy.jpg"
+                  alt="ShopAdmin Logo"
+                  className="h-full w-full object-cover"
+                />
               </div>
 
               <div>

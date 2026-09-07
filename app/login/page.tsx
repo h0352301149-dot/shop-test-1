@@ -327,8 +327,12 @@ function LoginForm() {
 
               <div className="flex items-center gap-3">
 
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-cyan-400/30 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 text-lg font-bold text-cyan-300 shadow-lg shadow-cyan-500/10">
-                  S
+                <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl border border-cyan-400/30 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 shadow-lg shadow-cyan-500/10">
+                  <img
+                    src="/2aOboQws3Jga5zWour3pS6E7WtLQnNGJPgCAZgsy.jpg"
+                    alt="Shop Admin Logo"
+                    className="h-full w-full object-cover"
+                  />
                 </div>
 
                 <div>
@@ -544,8 +548,12 @@ function LoginForm() {
               <div className="mb-7">
 
                 {/* Mobile logo */}
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-cyan-400/20 bg-cyan-500/10 text-xl text-cyan-300 lg:hidden">
-                  S
+                <div className="mb-4 flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl border border-cyan-400/20 bg-cyan-500/10 lg:hidden">
+                  <img
+                    src="/2aOboQws3Jga5zWour3pS6E7WtLQnNGJPgCAZgsy.jpg"
+                    alt="Shop Admin Logo"
+                    className="h-full w-full object-cover"
+                  />
                 </div>
 
                 <span className="inline-flex items-center rounded-md border border-cyan-500/20 bg-cyan-500/10 px-2.5 py-1 text-[10px] font-bold tracking-wider text-cyan-400">

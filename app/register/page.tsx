@@ -29,11 +29,6 @@ export default function RegisterPage() {
   // FORM STATE
   // ==========================================================
 
-  /*
-   * NOTE:
-   * State dùng để lưu dữ liệu người dùng nhập vào form.
-   */
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -41,11 +36,6 @@ export default function RegisterPage() {
   // ==========================================================
   // PASSWORD VISIBILITY
   // ==========================================================
-
-  /*
-   * NOTE:
-   * Cho phép người dùng bật/tắt hiển thị mật khẩu.
-   */
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] =
@@ -55,28 +45,11 @@ export default function RegisterPage() {
   // REQUEST STATE
   // ==========================================================
 
-  /*
-   * NOTE:
-   * loading dùng để:
-   * - hiển thị trạng thái đang đăng ký
-   * - disable input/button
-   * - tránh submit nhiều lần
-   */
-
   const [loading, setLoading] = useState(false);
 
   // ==========================================================
   // GLOBAL MESSAGE
   // ==========================================================
-
-  /*
-   * NOTE:
-   * error:
-   *   Lỗi trả về từ API hoặc lỗi đăng ký.
-   *
-   * success:
-   *   Thông báo đăng ký thành công.
-   */
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -85,29 +58,8 @@ export default function RegisterPage() {
   // FIELD VALIDATION ERROR
   // ==========================================================
 
-  /*
-   * NOTE:
-   * Mỗi input có state lỗi riêng để hiển thị
-   * thông báo ngay bên dưới field tương ứng.
-   */
-
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
-
-  /*
-   * NOTE:
-   * Phải khai báo cả state và setter.
-   *
-   * Trước đây code chỉ có:
-   *
-   * const [confirmPasswordError] = useState("");
-   *
-   * nhưng phía dưới lại sử dụng:
-   *
-   * setConfirmPasswordError(...)
-   *
-   * nên TypeScript báo lỗi.
-   */
 
   const [confirmPasswordError, setConfirmPasswordError] =
     useState("");
@@ -116,28 +68,12 @@ export default function RegisterPage() {
   // VALIDATION
   // ==========================================================
 
-  /*
-   * NOTE:
-   * Validation frontend giúp:
-   * - giảm request API không cần thiết
-   * - phản hồi nhanh cho người dùng
-   * - cải thiện UX
-   *
-   * Frontend validation không thay thế
-   * validation phía backend.
-   */
-
   function validateForm() {
     let isValid = true;
 
     setEmailError("");
     setPasswordError("");
     setConfirmPasswordError("");
-
-    /*
-     * NOTE:
-     * trim() loại bỏ khoảng trắng thừa ở đầu/cuối email.
-     */
 
     const normalizedEmail = email.trim();
 
@@ -159,13 +95,6 @@ export default function RegisterPage() {
     // PASSWORD VALIDATION
     // ========================================================
 
-    /*
-     * NOTE:
-     * Quy tắc:
-     * - bắt buộc nhập
-     * - tối thiểu 6 ký tự
-     */
-
     if (!password) {
       setPasswordError("Vui lòng nhập mật khẩu.");
       isValid = false;
@@ -179,13 +108,6 @@ export default function RegisterPage() {
     // ========================================================
     // CONFIRM PASSWORD VALIDATION
     // ========================================================
-
-    /*
-     * NOTE:
-     * Mật khẩu xác nhận phải:
-     * - được nhập
-     * - giống password ban đầu
-     */
 
     if (!confirmPassword) {
       setConfirmPasswordError(
@@ -206,19 +128,6 @@ export default function RegisterPage() {
   // REGISTER
   // ==========================================================
 
-  /*
-   * NOTE:
-   * Flow đăng ký:
-   *
-   * 1. Chặn browser submit mặc định.
-   * 2. Xóa message cũ.
-   * 3. Validate form.
-   * 4. Gọi POST /register thông qua registerUser().
-   * 5. Thành công -> success.
-   * 6. Thất bại -> error.
-   * 7. finally -> tắt loading.
-   */
-
   async function handleSubmit(
     event: FormEvent<HTMLFormElement>
   ) {
@@ -236,11 +145,8 @@ export default function RegisterPage() {
       setLoading(true);
 
       /*
-       * NOTE:
        * Component không gọi fetch trực tiếp.
-       *
-       * API service nằm trong:
-       * lib/api.ts
+       * API service nằm trong lib/api.ts
        */
 
       await registerUser(
@@ -249,7 +155,6 @@ export default function RegisterPage() {
       );
 
       /*
-       * NOTE:
        * API đăng ký thành công.
        *
        * Không tự động login vì API register
@@ -266,32 +171,14 @@ export default function RegisterPage() {
       setConfirmPassword("");
 
     } catch (err: unknown) {
-      /*
-       * NOTE:
-       * unknown giúp TypeScript an toàn hơn.
-       */
-
       const message =
         err instanceof Error
           ? err.message
           : "Đăng ký thất bại. Vui lòng thử lại.";
 
-      /*
-       * NOTE:
-       * lib/api.ts đã xử lý HTTP status.
-       *
-       * Component chỉ lấy message để hiển thị.
-       */
-
       setError(message);
 
     } finally {
-      /*
-       * NOTE:
-       * finally luôn chạy dù request thành công
-       * hay thất bại.
-       */
-
       setLoading(false);
     }
   }
@@ -299,12 +186,6 @@ export default function RegisterPage() {
   // ==========================================================
   // CLEAR MESSAGES WHEN USER TYPES
   // ==========================================================
-
-  /*
-   * NOTE:
-   * Khi người dùng sửa input,
-   * lỗi cũ được xóa để UX tốt hơn.
-   */
 
   function handleEmailChange(value: string) {
     setEmail(value);
@@ -385,11 +266,22 @@ export default function RegisterPage() {
 
               <div className="flex items-center gap-3">
 
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-cyan-400/30 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 text-lg font-bold text-cyan-300 shadow-lg shadow-cyan-500/10">
-                  S
+                {/* ==================================================
+                    LOGO - ĐÃ ĐỔI SANG ẢNH
+                ================================================== */}
+
+                <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl border border-cyan-400/30 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 shadow-lg shadow-cyan-500/10">
+
+                  <img
+                    src="/2aOboQws3Jga5zWour3pS6E7WtLQnNGJPgCAZgsy.jpg"
+                    alt="Shop Admin Logo"
+                    className="h-full w-full object-cover"
+                  />
+
                 </div>
 
                 <div>
+
                   <h3 className="font-bold leading-none text-white">
                     Shop Admin
                   </h3>
@@ -397,6 +289,7 @@ export default function RegisterPage() {
                   <p className="mt-1 text-[11px] text-slate-500">
                     Management System
                   </p>
+
                 </div>
 
               </div>
@@ -618,10 +511,18 @@ export default function RegisterPage() {
 
               <div className="mb-7">
 
-                {/* Mobile Logo */}
+                {/* ==================================================
+                    MOBILE LOGO - ĐÃ ĐỔI SANG ẢNH
+                ================================================== */}
 
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-cyan-400/20 bg-cyan-500/10 text-xl font-bold text-cyan-300 lg:hidden">
-                  S
+                <div className="mb-4 flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl border border-cyan-400/20 bg-cyan-500/10 lg:hidden">
+
+                  <img
+                    src="/2aOboQws3Jga5zWour3pS6E7WtLQnNGJPgCAZgsy.jpg"
+                    alt="Shop Admin Logo"
+                    className="h-full w-full object-cover"
+                  />
+
                 </div>
 
                 <span className="inline-flex items-center rounded-md border border-cyan-500/20 bg-cyan-500/10 px-2.5 py-1 text-[10px] font-bold tracking-wider text-cyan-400">
